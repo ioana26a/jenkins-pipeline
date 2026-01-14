@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+env/
+*.sqlite3
+
+# Virtual environments
+app/venv/
+app/env/
+
+# Docker
+*.log
+*.pid
+*.swp
+app/db_data/
+app/*.db
+
+# Nginx
+app/*.conf~
+
+# VSCode
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Terraform
+*.tfstate
+*.tfstate.*
+*.terraform/
+*.terraform.lock.hcl
+*.tfvars
+infrastructure/modules/ec2/.terraform/
+infrastructure/modules/ec2/terraform.tfstate
+infrastructure/modules/ec2/terraform.tfstate.*
+
+# Terraform plan files
+*.tfplan
+
+# Terraform crash logs
+crash.log
+
+# Ansible
+*.retry
+
+# AWS CLI
+.aws/
+
+# Ignore zip files (e.g., AWS CLI installer)
+*.zip
+
+# Ignore secrets
+*.pem
+*.key
+
+# Node/npm (if ever used)
+node_modules/
+
+# Ignore build artifacts
+dist/
+build/
+*.egg-info/
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Ignore docker-compose override files
+app/docker-compose.override.yml
+
+# Ignore Jenkins workspace files
+*.jenkins*

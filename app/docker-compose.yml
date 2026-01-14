@@ -1,0 +1,41 @@
+services:
+  # 1️⃣ Serviciul web (NGINX + Flask)
+  web:
+    build: .
+    image: myapp-prod:latest
+    container_name: nginx-web
+    ports:
+      - "8081:80"
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      FLASK_ENV: dev
+      DB_HOST: mariadb-db
+      DB_USER: appuser
+      DB_PASSWORD: apppass
+      DB_NAME: appdb
+    networks:
+      - app-network
+
+  # 2️⃣ Serviciul de bază de date (MariaDB)
+  db:
+    image: mariadb:latest
+    container_name: mariadb-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+# Definim rețeaua comună și volumul bazei de date
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
